@@ -1,0 +1,23 @@
+---
+---
+#intro {
+    --_img-width: 9.5rem;
+    flex-wrap: nowrap;
+}
+
+#intro > img {
+    width: var(--_img-width);
+    height: var(--_img-width);
+
+    overflow: hidden;
+    border-radius: 100%;
+    margin-right: var(--padding);
+    flex-shrink: 0;
+}
+
+@media (max-width:35rem) {
+    #intro {
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -1,0 +1,13 @@
+<!-- This is the universal heading for all pages in camplowell.github.io -->
+<header id="heading">
+  <div id="website-logo"><img src="/assets/images/Logo - 256.png"/><h1>Lowell Camp</h1></div>
+  <nav id="top-nav">
+    {% for item in site.data.navigation %}
+      {% if page.url == item.link %}
+        <div class="nav-here"><span>{{ item.name }}</span></div>
+      {% else %}
+        <div><a href="{{ item.link }}">{{ item.name }}</a></div>
+      {% endif %}
+    {% endfor %}
+  </nav>
+</header>

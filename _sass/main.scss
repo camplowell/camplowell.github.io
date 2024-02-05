@@ -1,0 +1,119 @@
+:root {
+    --padding: 1rem;
+    --page-margins: 2rem;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+a:link,
+a:visited {
+    color: var(--primary);
+}
+a:hover {
+    color: var(--primary-light);
+}
+
+h1 {
+    font-family: 'Diphylleia';
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+
+    font-style: italic;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#heading {
+    background-color: var(--bg1);
+    --_logo-height: 4rem;
+    display: flex;
+
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    padding-block: var(--padding);
+    padding-inline: var(--page-margins);
+
+    margin-bottom: var(--padding)
+}
+
+#website-logo {
+    display: flex;
+
+    justify-content: center;
+    align-items: left;
+    text-align: center;
+}
+
+#website-logo > img {
+    width: var(--_logo-height);
+    height:var(--_logo-height);
+}
+
+#website-logo > h1 {
+    margin: 0px;
+    font-size: 2.75rem;
+    line-height: var(--_logo-height);
+}
+
+#top-nav {
+    min-width: min-content;
+    height: 2.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+
+    background-color: var(--bg1);
+}
+
+#top-nav > div {
+    box-sizing: border-box;
+    min-width: min-content;
+    display: flex;
+    width: 6rem;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+
+.nav-here {
+    color: var(--fg1);
+}
+
+.footnote {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--fg1);
+}
+
+footer {
+    height: min-content;
+    margin-top: auto;
+
+    background-color: var(--bg1);
+}
+
+footer::before {
+    content: '';
+    margin-top: var(--padding);
+}
