@@ -25,6 +25,7 @@ a:hover {
 
 h1 {
     font-family: 'Diphylleia';
+    color: var(--primary);
 }
 
 img {
@@ -49,7 +50,15 @@ img {
     padding-block: var(--padding);
     padding-inline: var(--page-margins);
 
-    margin-bottom: var(--padding)
+    margin-bottom: var(--padding);
+
+    z-index: 100;
+}
+
+@media print {
+    #heading {
+        display: none;
+    }
 }
 
 #website-logo {

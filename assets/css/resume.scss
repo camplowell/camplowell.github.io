@@ -1,0 +1,124 @@
+---
+---
+
+.page-shadow {
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding: 0.625in 0.5in;
+    width: min-content;
+    height: min-content;
+
+    box-shadow: 0 0 1rem 0rem var(--bg1);
+    overflow: hidden;
+}
+
+.page {
+    box-sizing: border-box;
+    width: 7.5in;
+    height: 9.75in;
+
+    display: flex;
+    flex-direction: column;
+
+    font-size: 12pt;
+    font-weight: 350;
+    line-height: 1.15;
+
+    position: relative;
+}
+
+@media print {
+    .page-shadow {
+        box-shadow: none;
+        padding: 0;
+    }
+}
+
+.centered {
+    width: fit-content;
+    height: min-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#page-title {
+    --_logo-height: 0.6in;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: left;
+    text-align: center;
+}
+
+#page-title > img {
+    width: var(--_logo-height);
+    height:var(--_logo-height);
+}
+
+#page-title > h1 {
+    margin: 0px;
+    font-size: 2.75rem;
+    line-height: var(--_logo-height);
+}
+
+.small {
+    font-weight: 200;
+}
+
+a.stealthy {
+    font-style: normal;
+    text-decoration: none;
+    color: inherit;
+}
+
+a.stealthy:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+a.stealthy:hover {
+    text-decoration: underline;
+}
+
+
+
+.experience {
+    margin-top: 0.5em;
+
+    & > span:first-child {
+        font-weight: 600;
+    }
+}
+.skill {
+    & > span:first-child {
+        font-weight: 600;
+        font-style: italic;
+    }
+}
+
+.right {
+    float: right;
+}
+
+.category {
+    padding-left: 0.25in;
+}
+
+.category ul {
+    margin-top: 0.1em;
+    margin-bottom: 0em;
+}
+
+.page h3 {
+    color: var(--primary);
+    margin-bottom: 0;
+    margin-top: 0.5em;
+}
+
+.page .footer {
+    height: min-content;
+    margin-top: auto;
+    margin-bottom: 0.15em;
+}
+

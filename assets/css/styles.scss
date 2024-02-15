@@ -22,11 +22,25 @@ body {
     body {
         --bg0: #291c22;
         --bg1: #44353c;
+        --bg2: #6a5a61;
         --fg0: #edf3e3;
         --fg1: #C3C8B9;
 
         --primary: #649f48;
         --primary-light: #88b95c;
+        --accent: #ffcce3;
+    }
+}
+
+@media print {
+    body {
+        --bg0: #ffffff;
+        --bg1: #edf3e3;
+        --fg0: #1c2c14;
+        --fg1: #3d5132;
+
+        --primary: #52803c;
+        --primary-light: #649f48;
         --accent: #ffcce3;
     }
 }
