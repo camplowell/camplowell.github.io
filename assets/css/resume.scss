@@ -81,18 +81,19 @@ a.stealthy:hover {
     text-decoration: underline;
 }
 
-
+.page h4 {
+    display: inline;
+    margin: 0;
+    margin-right: 1ch;
+    font-size: inherit;
+    font-weight: 600;
+}
 
 .experience {
     margin-top: 0.5em;
-
-    & > span:first-child {
-        font-weight: 600;
-    }
 }
 .skill {
-    & > span:first-child {
-        font-weight: 600;
+    & > h4:first-child {
         font-style: italic;
     }
 }
