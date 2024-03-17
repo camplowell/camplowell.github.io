@@ -15,6 +15,10 @@ body {
     justify-content: flex-start;
 }
 
+main {
+    margin-bottom: 1em;
+}
+
 a:link,
 a:visited {
     color: var(--primary);
@@ -118,11 +122,15 @@ img {
 footer {
     height: min-content;
     margin-top: auto;
-
     background-color: var(--bg1);
+    min-height: 4em;
 }
 
-footer::before {
-    content: '';
-    margin-top: var(--padding);
+h1, h2, h3, h4 {
+    margin-bottom: 0.5rem;
+    line-height: 1em;
+}
+
+h1, h2 {
+    color: var(--primary);
 }
