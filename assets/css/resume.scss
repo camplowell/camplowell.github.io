@@ -115,8 +115,16 @@ a.stealthy:hover {
     margin-bottom: 0em;
 }
 
+.page h1, h2, h3, h4, h5 {
+    font-family: 'OpenSans';
+    color: var(--fg0);
+}
+
+.page h1 {
+    font-weight: 500;
+}
+
 .page h3 {
-    color: var(--primary);
     margin-bottom: 0;
     margin-top: 0.5em;
 }
