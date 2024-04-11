@@ -19,11 +19,12 @@
     display: flex;
     flex-direction: column;
 
-    font-size: 12pt;
-    font-weight: 350;
-    line-height: 1.15;
+    font-size: 11pt;
+    font-weight: 400;
+    line-height: 1.2;
 
     position: relative;
+    font-family: Helvetica, sans-serif;
 }
 
 @media print {
@@ -53,6 +54,7 @@
     justify-content: center;
     align-items: left;
     text-align: center;
+    margin-bottom: 0.5em;
 }
 
 #page-title > img {
@@ -62,8 +64,8 @@
 
 #page-title > h1 {
     margin: 0px;
-    font-size: 2.75rem;
-    line-height: var(--_logo-height);
+    font-size: 24pt;
+    line-height: 24pt;
 }
 
 .small {
@@ -85,18 +87,16 @@ a.stealthy:hover {
     text-decoration: underline;
 }
 
-.page h4 {
-    display: inline;
-    margin: 0;
-    margin-right: 1ch;
-    font-size: inherit;
-    font-weight: 600;
-}
-
 .experience {
     margin-top: 0.5em;
 }
+
 .skill {
+    margin-top: 0.15em;
+
+    &:first-child {
+        margin-top: 0.4em;
+    }
     & > h4:first-child {
         font-style: italic;
     }
@@ -116,7 +116,7 @@ a.stealthy:hover {
 }
 
 .page h1, h2, h3, h4, h5 {
-    font-family: 'OpenSans';
+    font-family: Helvetica, sans-serif;
     color: var(--fg0);
 }
 
@@ -125,8 +125,17 @@ a.stealthy:hover {
 }
 
 .page h3 {
+    font-size: 14pt;
+    margin-top: 0.75em;
     margin-bottom: 0;
-    margin-top: 0.5em;
+}
+
+.page h4 {
+    display: inline;
+    margin: 0;
+    margin-right: 1ch;
+    font-size: 12pt;
+    font-weight: 600;
 }
 
 .page .footer {
