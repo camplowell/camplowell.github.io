@@ -1,25 +1,40 @@
 ---
-permalink: /404.html
-layout: default
+layout: layout.html
+title: 404
 ---
+<h1>404</h1>
+<pre><code><span id="ears">(\(\ </span>
+<span id="face">(-.-)</span>
+(_(")(")
+</code></pre>
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
+<style>
+    pre {
+        font-size: 2rem;
+        display: block;
+        margin-inline: auto;
+        margin-block-start: 4rem;
+        padding: var(--spacing);
+        aspect-ratio: 1 / 1;
+        align-content: center;
+    }
 </style>
 
-<div class="container">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+<script>
+function anim(target, frames, i = 0) {
+    let [text, duration] = frames[i];
+    if (typeof duration === 'function') duration = duration();
+    target.textContent = frames[i][0];
+    setTimeout(anim, duration, target, frames, (i + 1) % frames.length);
+}
+anim(document.getElementById("face"), [
+    ["(−.−)", 1500], 
+    ["(-.-)", 1500]
+]);
+anim(document.getElementById("ears"), [
+    ["(\\(\\ ", () => Math.random() * 8000],
+    ["(\\-()", 50],
+    ["(\\ /)", 80],
+    ["(\\(\\-", 20],  
+]);
+</script>

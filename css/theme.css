@@ -1,0 +1,99 @@
+@font-face {
+    font-family: "Diphylleia";
+    font-style: normal;
+    font-weight: 400;
+    src:
+        local("Diphylleia Regular"),
+        local("Diphylleia-Regular"),
+        url(/fonts/diphylleia-ascii.woff2) format("woff2");
+    unicode-range: 0000-007F;
+}
+
+@font-face {
+	font-family: "0xProto";
+	font-style: italic;
+	font-weight: 400;
+	font-stretch: 100%;
+	src: local("0xProto Italic"), local("0xProto-Italic"), url(fonts/0xproto-italic-min.woff2) format("woff2");
+	unicode-range: 0020-007F,00A0-00BF,00C0-00D6,2013-2026,2200-222D,2248-2249,2500-257F;
+	font-display: auto;
+}
+
+@font-face {
+	font-family: "0xProto";
+	font-style: normal;
+	font-weight: 400;
+	font-stretch: 100%;
+	src: local("0xProto Regular"), local("0xProto-Regular"), url(fonts/0xproto-min.woff2) format("woff2");
+	unicode-range: 0020-007F,00A0-00BF,00C0-00D6,2013-2026,2200-222D,2248-2249,2500-257F;
+	font-display: auto;
+}
+
+@property --ch-fac {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 0.0;
+}
+
+:root {
+    --rounding: 1rem;
+    --spacing: 1rem;
+    --padding-inline: var(--spacing);
+    --content-max-width: 90rch;
+    --breakout-max-width: 100rch;
+
+    color-scheme: light dark;
+    --bg-h: light-dark(#f3ead9, #0a0c04);
+    --bg: light-dark(#ece4d3, #101307);
+    --bg-s: light-dark(#e8ddc8, #191d0e);
+
+    --fg-h: light-dark(#030400, #e8ddc8);
+    --fg: light-dark(#222615, #cfc3ac);
+    --fg-s: light-dark(#363a24, #a1947a);
+    --fg-ss: light-dark(#847a5e, #847a5e);
+
+    --outline: light-dark(#b6a990, #363a24);
+
+    --red-h: light-dark(#842312, #e56d43);
+    --yellow-h: light-dark(#92640a, #e9b531);
+    --green-h: light-dark(#5c6c02, #a5bf37);
+    --cyan-h: light-dark(#06614b, #46b087);
+    --blue-h: light-dark(#164774, #4d91bf);
+    --magenta-h: light-dark(#84328c, #d77fe1);
+
+    --red: color-mix(in oklab, var(--red-h), light-dark(var(--fg-ss), var(--fg-s)) 75%);
+    --yellow: color-mix(in oklab, var(--yellow-h), light-dark(var(--fg-ss), var(--fg-s)) 60%);
+    --green: color-mix(in oklab, var(--green-h), light-dark(var(--fg-ss), var(--fg-s)) 75%);
+    --cyan: color-mix(in oklab, var(--cyan-h), light-dark(var(--fg-ss), var(--fg-s)) 75%);
+    --blue: color-mix(in oklab, var(--blue-h), light-dark(var(--fg-ss), var(--fg-s)) 75%);
+    --magenta: color-mix(in oklab, var(--magenta-h), light-dark(var(--fg-ss), var(--fg-s)) 75%);
+
+    @media print {
+        --bg-h: #fff;
+        --bg: #fff;
+        --bg-s: #e9ddc5;
+    }
+
+    --font-heading: Diphylleia;
+    --font-body:
+        Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro, system-ui,
+        sans-serif;
+    --font-mono:
+        "0xProto", "DM Mono", "Fira Code", Menlo, "DejaVu Sans Mono",
+        "Lucida Console", ui-monospace, monospace;    
+}
+
+body {
+    --breakout-size: calc(
+        (var(--breakout-max-width) - var(--content-max-width)) / 2
+    );
+    --content-width: min(100svw - (var(--padding-inline) * 2), var(--content-max-width));
+    
+    --ch-fac: progress(var(--content-width), 30rch, var(--content-max-width));
+    
+    --ch-s: calc(0.9rem + var(--ch-fac) * 0.15rem);
+    --ch-m: calc(1rem + var(--ch-fac) * 0.25rem);
+    --ch-3: calc(1.1rem + var(--ch-fac) * 0.5rem);
+    --ch-4: calc(1.2rem + var(--ch-fac) * 0.75rem);
+    --ch-5: calc(2rem + var(--ch-fac) * 1rem);
+}

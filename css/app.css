@@ -1,0 +1,104 @@
+@layer base, layout, module, state, theme;
+
+@import "theme.css" layer(theme);
+@import "base.css" layer(base);
+@import "layout.css" layer(layout);
+@import "module.css" layer(module);
+@import "state.css" layer(state);
+
+/*
+@layer config {
+    :root {
+        --rounding: 1rem;
+        --spacing: 1rem;
+        --padding-inline: var(--spacing);
+        --content-max-width: 90rch;
+        --breakout-max-width: 100rch;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing);
+
+        &.wrap {
+            flex-wrap: wrap;
+            > div {
+                flex: 1 0 min-content;
+            }
+        }
+    }
+
+    body {
+        display: grid;
+        grid-template-rows: auto 1fr auto;        
+    }
+
+    
+
+    main {
+        margin-bottom: auto;
+        p {
+            min-width: 25ch;
+        }
+        article {
+            line-height: 1.5;
+        }
+        
+        :is(article, .prose, ul, ol) > * + * {
+            margin-block-start: 1em;
+        }
+        
+        .prev-next {
+          display: grid;
+          grid-template-columns: 12rch 1fr 12rch;
+          > :is(a, div) {
+            text-align: center;
+          }
+        }
+    }
+
+    body > nav {
+        margin-bottom: var(--spacing);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        background-color: var(--bg-s);
+
+        a {
+            text-decoration: none;
+        }
+
+        > * {
+            display: flex;
+            flex-direction: row;
+            color: var(--fg);
+            text-decoration: none;
+        }
+
+        > .logo {
+            align-items: center;
+            padding-inline: var(--spacing);
+        }
+
+        > .logo > span {
+            padding-block: var(--spacing);
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+        }
+
+        > .categories > a {
+            padding: var(--spacing);
+            border-left: 1px solid var(--outline);
+            align-content: center;
+        }
+    }
+
+    
+
+    .round {
+        border-radius: 1000rem;
+    }
+}
+*/

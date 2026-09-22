@@ -1,0 +1,126 @@
+body > nav {
+    display: grid;
+    width: 100%;
+    height: 4rem;
+    container-type: inline-size;
+
+    grid-template-columns: minmax(0, var(--spacing)) [logo-start] min-content [logo-end] minmax(0, var(--spacing)) 1fr [categories-start] min-content [categories-end];
+
+    background-color: var(--bg-s);
+
+    a {
+        text-decoration: none;
+        color: var(--fg);
+        text-decoration: none;
+    }
+
+    > .logo {
+        grid-column: logo;
+        align-items: center;
+        justify-content: center;
+    }
+
+    > .logo > span {
+        font-family: var(--font-heading);
+        text-wrap: nowrap;
+        font-size: var(--ch-4);
+
+        @container (inline-size < 35rem) {
+            display: none;
+        }
+    }
+
+    > .categories {
+        grid-column: categories;        
+    }
+    > .categories > a {
+        padding: var(--spacing);
+        border-left: 1px solid var(--outline);
+        align-content: center;
+
+        &:hover {
+            background-color: var(--bg);
+        }
+
+        transition: color 0.2s, background-color 0.2s;
+    }
+}
+
+body > footer {
+    margin-top: calc(2 * var(--spacing));
+    container-type: inline-size;
+    padding-block: var(--spacing);
+    background-color: var(--bg-s);
+
+    > div {
+        justify-content: space-between;
+    }
+    
+    .site-link {
+        display: flex;
+        flex-direction: row;
+        flex: 0 0 min-content;
+        gap: 1ch;
+        
+        :first-child {
+            color: var(--fg);
+            width: 1lh;
+            height: 1lh;
+            min-width: 1lh;
+        }
+        @container (inline-size < 35rem) {
+            :nth-child(2) {
+                display: none;
+            }
+        }
+    }
+}
+
+main {
+    margin-bottom: auto;
+    margin-top: var(--spacing);
+
+    p {
+        min-width: 25ch;
+    }
+
+    .prev-next {
+        display: grid;
+        grid-template-columns: 8ch 1fr 8ch;
+        padding-inline: var(--spacing);
+        :first-child {
+            text-align: start;
+            text-decoration: none;
+        }
+        :nth-child(2) {
+            text-align: center;
+        }
+        :last-child {
+            text-align: end;
+            text-decoration: none;
+        }
+    }
+
+    cite {
+        font-style: normal;
+        font-size: smaller;
+        vertical-align: super;
+        line-height: 0;
+    }
+    
+    cite > a {
+        text-decoration: none;
+        &:first-child::before {
+            content: "[";
+            color: var(--fg);
+        }
+        &:not(:last-child)::after {
+            content: ",";
+            color: var(--fg);
+        }
+        &:last-child::after {
+            content: "]";
+            color: var(--fg);
+        }
+    }
+}
