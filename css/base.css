@@ -54,6 +54,7 @@ a {
         color: var(--blue-h);
     }
 }
+
 a:visited {
     color: var(--magenta);
     &:hover {

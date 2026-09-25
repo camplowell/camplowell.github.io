@@ -47,7 +47,7 @@ body > nav {
 }
 
 body > footer {
-    margin-top: calc(2 * var(--spacing));
+    margin-block-start: calc(2 * var(--spacing));
     container-type: inline-size;
     padding-block: var(--spacing);
     background-color: var(--bg-s);
@@ -78,7 +78,11 @@ body > footer {
 
 main {
     margin-bottom: auto;
-    margin-top: var(--spacing);
+    margin-block-start: var(--spacing);
+
+    @media print {
+        margin-block-start: 0;
+    }
 
     p {
         min-width: 25ch;
