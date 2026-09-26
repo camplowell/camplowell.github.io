@@ -91,7 +91,6 @@ svg {
     max-height: attr(height px);
     width: 100%;
     height: auto;
-    margin-block-start: var(--spacing);
 }
 
 button {

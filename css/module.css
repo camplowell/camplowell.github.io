@@ -39,6 +39,11 @@ ul,
     }
 }
 
+.space-before,
+:is(article, ol, ul) > * + * {
+    margin-block-start: 1.6em;
+}
+
 .row {
     display: flex;
     flex-direction: row;
