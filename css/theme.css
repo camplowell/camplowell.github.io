@@ -85,40 +85,17 @@
     --red-h: light-dark(#842312, #e56d43);
     --yellow-h: light-dark(#92640a, #e9b531);
     --green-h: light-dark(#5c6c02, #a5bf37);
-    --cyan-h: light-dark(#06614b, #46b087);
+    /* --cyan-h: light-dark(#06614b, #46b087); */
     --blue-h: light-dark(#164774, #4d91bf);
     --magenta-h: light-dark(#84328c, #d77fe1);
 
-    --red: color-mix(
-        in oklab,
-        var(--red-h),
-        light-dark(var(--fg-ss), var(--fg-s)) 75%
-    );
-    --yellow: color-mix(
-        in oklab,
-        var(--yellow-h),
-        light-dark(var(--fg-ss), var(--fg-s)) 60%
-    );
-    --green: color-mix(
-        in oklab,
-        var(--green-h),
-        light-dark(var(--fg-ss), var(--fg-s)) 75%
-    );
-    --cyan: color-mix(
-        in oklab,
-        var(--cyan-h),
-        light-dark(var(--fg-ss), var(--fg-s)) 75%
-    );
-    --blue: color-mix(
-        in oklab,
-        var(--blue-h),
-        light-dark(var(--fg-ss), var(--fg-s)) 75%
-    );
-    --magenta: color-mix(
-        in oklab,
-        var(--magenta-h),
-        light-dark(var(--fg-ss), var(--fg-s)) 75%
-    );
+    /* Baked from color-mix(in oklab, var(--X-h), light-dark(var(--fg-ss), var(--fg-s)) N%) */
+    /* --red: light-dark(#87674c, #b48c6e); */
+    --yellow: light-dark(#8a7245, #bda267);
+    --green: light-dark(#7a774d, #a29f6e);
+    --cyan: light-dark(#6c7459, #919c7d);
+    --blue: light-dark(#6a6e66, #8f948d);
+    --magenta: light-dark(#856b6c, #af9195);
 
     --bg-lighter: light-dark(var(--bg-h), var(--bg-s));
     --bg-darker: light-dark(var(--bg-s), var(--bg-h));
