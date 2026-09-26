@@ -88,9 +88,9 @@ main {
     margin-bottom: auto;
     margin-block-start: var(--spacing);
 
-    /*p {
+    p {
         min-width: 25ch;
-    }*/
+    }
 
     .prev-next {
         display: grid;

@@ -75,8 +75,6 @@ figure {
     margin-inline: auto;
     img,
     svg {
-        max-width: attr(width px);
-        max-height: attr(height px);
         margin-inline: auto;
     }
     figcaption {
@@ -85,6 +83,15 @@ figure {
         color: var(--fg-s);
         font-size: var(--ch-s);
     }
+}
+
+img,
+svg {
+    max-width: attr(width px);
+    max-height: attr(height px);
+    width: 100%;
+    height: auto;
+    margin-block-start: var(--spacing);
 }
 
 button {
