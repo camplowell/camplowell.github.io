@@ -4,7 +4,13 @@ body > nav {
     height: 4rem;
     container-type: inline-size;
 
-    grid-template-columns: minmax(0, var(--spacing)) [logo-start] min-content [logo-end] minmax(0, var(--spacing)) 1fr [categories-start] min-content [categories-end];
+    grid-template-columns: minmax(
+            0,
+            var(--spacing)
+        ) [logo-start] min-content [logo-end] minmax(
+            0,
+            var(--spacing)
+        ) 1fr [categories-start] min-content [categories-end];
 
     background-color: var(--bg-s);
 
@@ -31,7 +37,7 @@ body > nav {
     }
 
     > .categories {
-        grid-column: categories;        
+        grid-column: categories;
     }
     > .categories > a {
         padding: var(--spacing);
@@ -42,7 +48,9 @@ body > nav {
             background-color: var(--bg);
         }
 
-        transition: color var(--dur), background-color var(--dur);
+        transition:
+            color var(--dur),
+            background-color var(--dur);
     }
 }
 
@@ -55,13 +63,13 @@ body > footer {
     > div {
         justify-content: space-between;
     }
-    
+
     .site-link {
         display: flex;
         flex-direction: row;
         flex: 0 0 min-content;
         gap: 1ch;
-        
+
         :first-child {
             color: var(--fg);
             width: 1lh;
@@ -111,7 +119,7 @@ main {
         vertical-align: super;
         line-height: 0;
     }
-    
+
     cite > a {
         text-decoration: none;
         &:first-child::before {
