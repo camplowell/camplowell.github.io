@@ -59,8 +59,8 @@
     --rounding: 0.8rem;
     --spacing: 0.8rem;
     --padding-inline: var(--spacing);
-    --content-max-width: 120rch;
-    --breakout-max-width: 150rch;
+    --content-max-width: 100rch;
+    --breakout-max-width: 120rch;
 
     --line-width: 0.15rem;
 
