@@ -1,57 +1,60 @@
 .page {
-    /* Cursed unit fakery to make things not so unbearably small */
-    --pt: calc(var(--ch-m) / 11);
-    --in: calc(72 * var(--pt));
+    /* Cursed unit fakery to make things not so unbearably small: --pt is 1/11th of
+       --ch-m, so 1em here == --ch-m == 11pt, and the print override below holds that
+       at a real 11pt. Every calc(N / 11 * 1em) below is N pt against that 11pt body,
+       so the numerators read as the sizes they stand for: 612pt = 8.5in wide,
+       792pt = 11in tall, 54pt = 0.75in of padding, 18/14/11/10pt for the type scale. */
     position: relative;
     display: flex;
     box-sizing: border-box;
-    width: calc(8.5 * var(--in));
-    height: calc(11 * var(--in));
-    max-height: calc(11 * var(--in));
-    padding-inline: calc(0.75 * var(--in));
-    padding-block: calc(0.75 * var(--in));
-    
+    width: calc(612 / 11 * 1em);
+    height: calc(792 / 11 * 1em);
+    max-height: calc(792 / 11 * 1em);
+    padding-inline: calc(54 / 11 * 1em);
+    padding-block: calc(54 / 11 * 1em);
+
     margin-block: var(--spacing);
     margin-inline: auto;
-    
+
     box-shadow: 0 0 1rem 0rem var(--bg-darker);
     background: var(--bg-lighter);
     color: var(--fg);
-    
+
     overflow: hidden;
     isolation: isolate;
-    
+
     flex-direction: column;
     justify-content: space-between;
 
-    font-size: calc(11 * var(--pt));
+    font-size: var(--ch-m);
     line-height: 1.15;
 
     & * + * {
         margin-top: 0;
     }
 
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
         font-family: inherit;
         margin-bottom: 0;
+        font-weight: 600;
     }
 
     h1 {
-        font-size: calc(18 * var(--pt));
-        font-weight: 600;
+        font-size: calc(18 / 11 * 1em);
+        line-height: 1;
     }
 
     h2 {
-        font-size: calc(14pt * var(--pt));
-        font-weight: 600;
+        font-size: calc(14 / 11 * 1em);
     }
 
     h3 {
-        font-size: calc(11 * var(--pt));
-        font-weight: 600;
+        font-size: 1em;
         display: inline;
     }
-    
+
     a,
     a:visited {
         padding: 5px;
@@ -67,7 +70,8 @@
         }
     }
 
-    ul, ol {
+    ul,
+    ol {
         line-height: 1.15;
     }
 
@@ -75,12 +79,15 @@
         margin-block-start: 1lh;
     }
 
-    .experience, .skill, .blurb, ul {
+    .experience,
+    .skill,
+    .blurb,
+    ul {
         margin-block-start: 0.35lh;
     }
 
     .small {
-        font-size: calc(10 * var(--pt));
+        font-size: calc(10 / 11 * 1em);
     }
 
     .centered {
@@ -107,8 +114,7 @@
 
 @media print {
     .page {
-        --pt: 1pt;
-        --in: 1in;
+        font-size: 11pt;
         margin: 0;
         padding: 0;
         box-shadow: none;
