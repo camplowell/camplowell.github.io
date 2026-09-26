@@ -49,7 +49,7 @@ hr {
 
 a {
     color: var(--blue);
-    transition: color 0.1s;
+    transition: color var(--dur);
     &:is(:hover, :focus-visible) {
         outline: none;
         color: var(--blue-h);
@@ -110,7 +110,7 @@ button {
         background-color: var(--bg-lighter);
     }
 
-    transition: color 0.1s, background-color 0.1s, opacity 0.1s;
+    transition: color var(--dur), background-color var(--dur), opacity var(--dur);
 }
 
 strong {

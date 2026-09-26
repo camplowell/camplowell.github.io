@@ -64,6 +64,8 @@
 
     --line-width: 0.15rem;
 
+    --dur: 0.15s;
+
     --bg-h: light-dark(#f3ead9, #0a0c04);
     --bg: light-dark(#ece4d3, #101307);
     --bg-s: light-dark(#e8ddc8, #191d0e);
