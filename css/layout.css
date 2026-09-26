@@ -35,14 +35,14 @@ body > nav {
     }
     > .categories > a {
         padding: var(--spacing);
-        border-left: 1px solid var(--outline);
+        border-left: var(--line-width) solid var(--outline);
         align-content: center;
 
         &:hover {
             background-color: var(--bg);
         }
 
-        transition: color 0.2s, background-color 0.2s;
+        transition: color 0.1s, background-color 0.1s;
     }
 }
 

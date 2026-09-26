@@ -10,42 +10,64 @@
 }
 
 @font-face {
-	font-family: "0xProto";
-	font-style: italic;
-	font-weight: 400;
-	font-stretch: 100%;
-	src: local("0xProto Italic"), local("0xProto-Italic"), url(fonts/0xproto-italic-min.woff2) format("woff2");
-	unicode-range: 0020-007F,00A0-00BF,00C0-00D6,2013-2026,2200-222D,2248-2249,2500-257F;
-	font-display: auto;
+    font-family: "0xProto";
+    font-style: italic;
+    font-weight: 400;
+    font-stretch: 100%;
+    src:
+        local("0xProto Italic"),
+        local("0xProto-Italic"),
+        url(fonts/0xproto-italic-min.woff2) format("woff2");
+    unicode-range:
+        0020-007F,
+        00A0-00BF,
+        00C0-00D6,
+        2013-2026,
+        2200-222D,
+        2248-2249,
+        2500-257F;
+    font-display: auto;
 }
 
 @font-face {
-	font-family: "0xProto";
-	font-style: normal;
-	font-weight: 400;
-	font-stretch: 100%;
-	src: local("0xProto Regular"), local("0xProto-Regular"), url(fonts/0xproto-min.woff2) format("woff2");
-	unicode-range: 0020-007F,00A0-00BF,00C0-00D6,2013-2026,2200-222D,2248-2249,2500-257F;
-	font-display: auto;
+    font-family: "0xProto";
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: 100%;
+    src:
+        local("0xProto Regular"),
+        local("0xProto-Regular"),
+        url(fonts/0xproto-min.woff2) format("woff2");
+    unicode-range:
+        0020-007F,
+        00A0-00BF,
+        00C0-00D6,
+        2013-2026,
+        2200-222D,
+        2248-2249,
+        2500-257F;
+    font-display: auto;
 }
 
 @property --ch-fac {
     syntax: "<number>";
     inherits: true;
-    initial-value: 0.0;
+    initial-value: 0;
 }
 
 :root {
-    --rounding: 1rem;
-    --spacing: 1rem;
+    --rounding: 0.8rem;
+    --spacing: 0.8rem;
     --padding-inline: var(--spacing);
     --content-max-width: 120rch;
     --breakout-max-width: 150rch;
 
-    color-scheme: light dark;
+    --line-width: 0.15rem;
+
     --bg-h: light-dark(#f3ead9, #0a0c04);
     --bg: light-dark(#ece4d3, #101307);
     --bg-s: light-dark(#e8ddc8, #191d0e);
+    --bg-selected: light-dark(#cfc3ac, #2c301d);
 
     --fg-h: light-dark(#030400, #e8ddc8);
     --fg: light-dark(#222615, #cfc3ac);
@@ -61,12 +83,36 @@
     --blue-h: light-dark(#164774, #4d91bf);
     --magenta-h: light-dark(#84328c, #d77fe1);
 
-    --red: color-mix(in oklab, var(--red-h), light-dark(var(--fg-ss), var(--fg-s)) 75%);
-    --yellow: color-mix(in oklab, var(--yellow-h), light-dark(var(--fg-ss), var(--fg-s)) 60%);
-    --green: color-mix(in oklab, var(--green-h), light-dark(var(--fg-ss), var(--fg-s)) 75%);
-    --cyan: color-mix(in oklab, var(--cyan-h), light-dark(var(--fg-ss), var(--fg-s)) 75%);
-    --blue: color-mix(in oklab, var(--blue-h), light-dark(var(--fg-ss), var(--fg-s)) 75%);
-    --magenta: color-mix(in oklab, var(--magenta-h), light-dark(var(--fg-ss), var(--fg-s)) 75%);
+    --red: color-mix(
+        in oklab,
+        var(--red-h),
+        light-dark(var(--fg-ss), var(--fg-s)) 75%
+    );
+    --yellow: color-mix(
+        in oklab,
+        var(--yellow-h),
+        light-dark(var(--fg-ss), var(--fg-s)) 60%
+    );
+    --green: color-mix(
+        in oklab,
+        var(--green-h),
+        light-dark(var(--fg-ss), var(--fg-s)) 75%
+    );
+    --cyan: color-mix(
+        in oklab,
+        var(--cyan-h),
+        light-dark(var(--fg-ss), var(--fg-s)) 75%
+    );
+    --blue: color-mix(
+        in oklab,
+        var(--blue-h),
+        light-dark(var(--fg-ss), var(--fg-s)) 75%
+    );
+    --magenta: color-mix(
+        in oklab,
+        var(--magenta-h),
+        light-dark(var(--fg-ss), var(--fg-s)) 75%
+    );
 
     --bg-lighter: light-dark(var(--bg-h), var(--bg-s));
     --bg-darker: light-dark(var(--bg-s), var(--bg-h));
@@ -83,18 +129,23 @@
         sans-serif;
     --font-mono:
         "0xProto", "DM Mono", "Fira Code", Menlo, "DejaVu Sans Mono",
-        "Lucida Console", ui-monospace, monospace;    
+        "Lucida Console", ui-monospace, monospace;
 }
 
 body {
-    
-    --content-width: min(100svw - (var(--padding-inline) * 2), var(--content-max-width));
-    --breakout-width: min(100svw - (var(--padding-inline) * 2), var(--breakout-max-width));
-    
+    --content-width: min(
+        100svw - (var(--padding-inline) * 2),
+        var(--content-max-width)
+    );
+    --breakout-width: min(
+        100svw - (var(--padding-inline) * 2),
+        var(--breakout-max-width)
+    );
+
     --breakout-size: ((var(--breakout-width) - var(--content-width)) / 2);
-    
+
     --ch-fac: progress(var(--breakout-width), 30rch, var(--breakout-max-width));
-    
+
     --ch-s: calc(0.9rem + var(--ch-fac) * 0.15rem);
     --ch-m: calc(1rem + var(--ch-fac) * 0.25rem);
     --ch-3: calc(1.1rem + var(--ch-fac) * 0.5rem);

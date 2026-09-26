@@ -1,7 +1,8 @@
-.content-grid, .full-width {
+.content-grid,
+.full-width {
     display: grid;
     min-width: min-content;
-    
+
     grid-template-columns:
         [full-width-start]
         minmax(var(--padding-inline), 1fr)
@@ -15,11 +16,11 @@
         minmax(var(--padding-inline), 1fr)
         [full-width-end];
 
-
     > * {
         grid-column: content;
     }
-    > .breakout {
+    > .breakout,
+    hr {
         grid-column: breakout;
     }
     > .full-width {
@@ -27,9 +28,12 @@
     }
 }
 
-article, ol, ul, .prose {
+article,
+ol,
+ul,
+.prose {
     line-height: 1.6;
-    &> * + * {
+    & > * + * {
         margin-block-start: 1.6em;
     }
 }
@@ -42,12 +46,12 @@ article, ol, ul, .prose {
     &.space-between {
         justify-content: space-between;
     }
-    
+
     &.wrap {
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        
+
         > div:has(p) {
             flex: 1 0 min-content;
         }
@@ -59,43 +63,91 @@ article, ol, ul, .prose {
 }
 
 pre:has(code) {
-  background-color: var(--bg-s);
-  color: var(--fg-s);
-  border-radius: var(--rounding);
-  padding: var(--spacing);
-  margin-block-start: 1em;
-  text-align: start;
+    border-radius: var(--rounding);
+    padding: var(--spacing);
+    margin-block-start: 1em;
+    text-align: start;
 
-  > code {
-    .comment {
-      font-style: italic;
-      color: var(--green-h);
+    background-color: var(--bg-s);
+    color: var(--fg-s);
+
+    > code {
+        &::selection {
+            background-color: var(--bg-selected);
+        }
+        .comment {
+            font-style: italic;
+            color: var(--green-h);
+        }
+        .keyword {
+            color: var(--red-h);
+        }
+        .class-name {
+            color: var(--magenta);
+        }
+        .function, .builtin {
+            color: var(--yellow);
+        }
+        .operator {
+            color: var(--yellow-h);
+        }
+        .string {
+            color: var(--green);
+        }
+        .number {
+            color: var(--blue);
+        }
+        .boolean {
+            color: var(--cyan);
+        }
+        .bracket {
+            color: var(--fg);
+        }
     }
-    .keyword {
-      color: var(--red-h);
+    
+    @media (prefers-color-scheme: dark) {
+        .keyword::selection {
+            color: #ffc7a8;
+        }
+        .class-name::selection {
+            color: #edcef3;
+        }
+        .function::selection,
+        .operator::selection,
+        .builtin::selection {
+            color: #ffeab1;
+        }
+        .string::selection {
+            color: #def0a4;
+        }
+        .number::selection {
+            color: #b9d4dd;
+        }
+        .boolean::selection {
+            color: #bee0be;
+        }
     }
-    .class-name {
-      color: var(--magenta);
+    @media (prefers-color-scheme: light) {
+        .keyword::selection {
+            background-color: #dbc0a4;
+        }
+        .class-name::selection {
+            background-color: #dbc0cd;
+        }
+        .function::selection,
+        .operator::selection {
+            background-color: #dbcba7;
+        }
+        .string::selection {
+            background-color: #d0cda3;
+        }
+        .number::selection {
+            background-color: #bfc3b8;
+        }
+        .boolean::selection {
+            background-color: #c1c8aa;
+        }
     }
-    .function {
-      color: var(--yellow);
-    }
-    .operator {
-      color: var(--yellow-h);
-    }
-    .string {
-      color: var(--green);
-    }
-    .number {
-      color: var(--blue);
-    }
-    .boolean {
-      color: var(--cyan);
-    }
-    .bracket {
-      color: var(--fg);
-    }
-  }
 }
 
 .round {

@@ -2,7 +2,7 @@
     /* Cursed unit fakery to make things not so unbearably small */
     --pt: calc(var(--ch-m) / 11);
     --in: calc(72 * var(--pt));
-    
+    position: relative;
     display: flex;
     box-sizing: border-box;
     width: calc(8.5 * var(--in));
@@ -11,7 +11,8 @@
     padding-inline: calc(0.75 * var(--in));
     padding-block: calc(0.75 * var(--in));
     
-    margin: var(--spacing);
+    margin-block: var(--spacing);
+    margin-inline: auto;
     
     box-shadow: 0 0 1rem 0rem var(--bg-darker);
     background: var(--bg-lighter);
@@ -52,12 +53,18 @@
     }
     
     a,
-    a:visited,
-    a:hover {
+    a:visited {
+        padding: 5px;
+        margin: -5px;
         font-style: inherit;
         text-decoration: inherit;
         font-weight: inherit;
         color: inherit;
+
+        &:is(:hover, :focus-visible) {
+            background-color: var(--bg-selected);
+            color: var(--fg-h);
+        }
     }
 
     ul, ol {
@@ -87,6 +94,15 @@
     .right {
         float: right;
     }
+
+    .print {
+        position: absolute;
+        top: var(--spacing);
+        right: var(--spacing);
+        color: var(--fg-ss);
+        aspect-ratio: 1 / 1;
+        line-height: 0;
+    }
 }
 
 @media print {
@@ -99,5 +115,8 @@
         max-width: 100vw;
         max-height: 100vh;
         break-inside: avoid;
+    }
+    .print {
+        display: none;
     }
 }

@@ -29,7 +29,6 @@ h1 {
     font-family: var(--font-heading);
     font-size: var(--ch-5);
     text-align: center;
-    margin-bottom: 1em;
 }
 
 h2 {
@@ -44,23 +43,27 @@ p {
 hr {
     border: none;
     background-color: var(--outline);
-    height: 0.1rem;
+    height: var(--line-width);
     margin-block: var(--spacing);
 }
 
 a {
     color: var(--blue);
-    &:hover {
+    transition: color 0.1s;
+    &:is(:hover, :focus-visible) {
+        outline: none;
         color: var(--blue-h);
+    }
+    @supports(-moz-appearance: none) {
+        transition: none;
     }
 }
 
 a:visited {
     color: var(--magenta);
-    &:hover {
+    &:is(:hover, :focus-visible) {
         color: var(--magenta-h);
     }
-    transition: color 0.2s;
 }
 
 ul, ol {
@@ -80,4 +83,41 @@ figure {
     color: var(--fg-s);
     font-size: var(--ch-s);
   }
+}
+
+button {
+    font-family: var(--font-body);
+    font-size: var(--ch-m);
+    padding: var(--spacing);
+    border-radius: var(--rounding);
+    border: var(--line-width) solid var(--outline);
+    background-color: var(--bg);
+    color: var(--fg);
+
+    &:focus {
+        outline: none;
+        opacity: 100%;
+    }
+
+    &.subtle {
+        opacity: 50%;
+        cursor: pointer;
+    }
+    &.subtle:is(:hover, :focus-visible) {
+        opacity: 100%;
+    }
+    &:not(.subtle):is(:hover, :focus-visible) {
+        background-color: var(--bg-lighter);
+    }
+
+    transition: color 0.1s, background-color 0.1s, opacity 0.1s;
+}
+
+strong {
+    font-weight: 600;
+}
+
+::selection {
+    background-color: var(--bg-selected);
+    color: var(--fg-h);
 }

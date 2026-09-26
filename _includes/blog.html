@@ -5,39 +5,47 @@ layout: layout.html
 {% assign previousPost = collections.blog | getPreviousCollectionItem: page %}
 {% assign nextPost = collections.blog | getNextCollectionItem: page %}
 
-<article>
-  <header>
-    <h1>{{ title | default: "Untitled" }}</h1>
-  </header>
-  {{ content }}
-  <br>
-  <footer>
-    <div class="prev-next">
-      {% if previousPost %}<a href="{{ previousPost.url }}">&lt Previous</a>{% else %}<div></div>{% endif %}
-      <div>{{ date | date: '%b, %Y', 'UCT' }}</div>
-      {% if nextPost %}<a href="{{ nextPost.url }}">Next &gt</a>{% else %}<div></div>{% endif %}
-    </div>
-    {% if bibliography %}
-    <div class="bibliography prose">
-      <hr>
-      <h2>References</h2>
-      <ol>
-        {% for source in bibliography %}
-          <li id="ref-{{ source.id }}">
-            <span class="bib-author">{{ source.author }}</span>,
-            "<span class="bib-title">{{ source.title }}</span>,"
-            <span class="bib-publisher">{{ source.publisher }}</span>
-            {%- if source.doi -%},
-              <br>
-              {%- if source.url -%}
-                <a class="bib-doi" href="{{ source.url }}">doi: {{ source.doi }}</a>
-              {%- else -%}
+<article class="full-width">
+    <header>
+        <h1>{{ title | default: "Untitled" }}</h1>
+    </header>
+    {{ content }}
+    <br />
+    <footer class="full-width prose">
+        <div class="prev-next">
+            {% if previousPost %}<a href="{{ previousPost.url }}"
+                >&lt Previous</a
+            >{% else %}
+            <div></div>
+            {% endif %}
+            <div>{{ date | date: '%b, %Y', 'UCT' }}</div>
+            {% if nextPost %}<a href="{{ nextPost.url }}">Next &gt</a>{% else %}
+            <div></div>
+            {% endif %}
+        </div>
+        {% if bibliography %}
+        <hr />
+        <h2>References</h2>
+        <ol class="bibliography">
+            {% for source in bibliography %}
+            <li id="ref-{{ source.id }}">
+                <span class="bib-author">{{ source.author }}</span>, "<span
+                    class="bib-title"
+                    >{{ source.title }}</span
+                >,"
+                <span class="bib-publisher">{{ source.publisher }}</span>
+                {%- if source.doi -%},
+                <br />
+                {%- if source.url -%}
+                <a class="bib-doi" href="{{ source.url }}"
+                    >doi: {{ source.doi }}</a
+                >
+                {%- else -%}
                 <span class="bib-doi">doi: {{ source.doi }}</span>
-              {%- endif -%}
-          {%- endif -%}.
-        </li>{% endfor %}
-      </ol>
-    </div>
-  </footer>
-  {% endif %}
+                {%- endif -%} {%- endif -%}.
+            </li>
+            {% endfor %}
+        </ol>
+    </footer>
+    {% endif %}
 </article>
