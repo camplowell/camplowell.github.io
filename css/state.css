@@ -4,3 +4,7 @@
         display: none;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    :where(a, button) { transition: none; }
+}
