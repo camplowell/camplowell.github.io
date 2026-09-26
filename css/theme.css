@@ -68,6 +68,12 @@
     --bg: light-dark(#ece4d3, #101307);
     --bg-s: light-dark(#e8ddc8, #191d0e);
     --bg-selected: light-dark(#cfc3ac, #2c301d);
+    @media (prefers-color-scheme: light) {
+        --bg-selected-l: 0.8209;
+    }
+    @media (prefers-color-scheme: dark) {
+        --bg-selected-l: 0.2994;
+    }
 
     --fg-h: light-dark(#030400, #e8ddc8);
     --fg: light-dark(#222615, #cfc3ac);

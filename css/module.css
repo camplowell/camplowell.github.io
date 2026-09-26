@@ -71,81 +71,55 @@ pre:has(code) {
     background-color: var(--bg-s);
     color: var(--fg-s);
 
+    > code,
+    > code > * {
+        color: var(--tok);
+    }
+
     > code {
-        &::selection {
-            background-color: var(--bg-selected);
+        --tok: var(--fg-s);
+
+        > *::selection {
+            @media (prefers-color-scheme: light) {
+                color: var(--fg-h);
+                background-color: oklab(
+                    from color-mix(in oklab, var(--bg-selected), var(--tok) 20%)
+                        calc(0.25 * l + 0.76 * var(--bg-selected-l)) a b
+                );
+            }
+            @media (prefers-color-scheme: dark) {
+                background-color: var(--bg-selected);
+                color: color-mix(in oklab, var(--tok) 30%, var(--fg-h));
+            }
         }
         .comment {
             font-style: italic;
-            color: var(--green-h);
+            --tok: var(--green-h);
         }
         .keyword {
-            color: var(--red-h);
+            --tok: var(--red-h);
         }
         .class-name {
-            color: var(--magenta);
+            --tok: var(--magenta);
         }
-        .function, .builtin {
-            color: var(--yellow);
+        .function,
+        .builtin {
+            --tok: var(--yellow);
         }
         .operator {
-            color: var(--yellow-h);
+            --tok: var(--yellow-h);
         }
         .string {
-            color: var(--green);
+            --tok: var(--green);
         }
         .number {
-            color: var(--blue);
+            --tok: var(--blue);
         }
         .boolean {
-            color: var(--cyan);
+            --tok: var(--cyan);
         }
         .bracket {
-            color: var(--fg);
-        }
-    }
-    
-    @media (prefers-color-scheme: dark) {
-        .keyword::selection {
-            color: #ffc7a8;
-        }
-        .class-name::selection {
-            color: #edcef3;
-        }
-        .function::selection,
-        .operator::selection,
-        .builtin::selection {
-            color: #ffeab1;
-        }
-        .string::selection {
-            color: #def0a4;
-        }
-        .number::selection {
-            color: #b9d4dd;
-        }
-        .boolean::selection {
-            color: #bee0be;
-        }
-    }
-    @media (prefers-color-scheme: light) {
-        .keyword::selection {
-            background-color: #dbc0a4;
-        }
-        .class-name::selection {
-            background-color: #dbc0cd;
-        }
-        .function::selection,
-        .operator::selection {
-            background-color: #dbcba7;
-        }
-        .string::selection {
-            background-color: #d0cda3;
-        }
-        .number::selection {
-            background-color: #bfc3b8;
-        }
-        .boolean::selection {
-            background-color: #c1c8aa;
+            --tok: var(--fg);
         }
     }
 }
