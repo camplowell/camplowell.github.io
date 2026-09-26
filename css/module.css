@@ -1,7 +1,7 @@
 .content-grid,
 .full-width {
     display: grid;
-    min-width: min-content;
+    min-width: fit-content;
 
     grid-template-columns:
         [full-width-start]
@@ -25,6 +25,7 @@
     }
     > .full-width {
         grid-column: full-width;
+        grid-template-columns: subgrid;
     }
 }
 
@@ -78,20 +79,6 @@ pre:has(code) {
 
     > code {
         --tok: var(--fg-s);
-
-        > *::selection {
-            @media (prefers-color-scheme: light) {
-                color: var(--fg-h);
-                background-color: oklab(
-                    from color-mix(in oklab, var(--bg-selected), var(--tok) 20%)
-                        calc(0.25 * l + 0.76 * var(--bg-selected-l)) a b
-                );
-            }
-            @media (prefers-color-scheme: dark) {
-                background-color: var(--bg-selected);
-                color: color-mix(in oklab, var(--tok) 30%, var(--fg-h));
-            }
-        }
         .comment {
             font-style: italic;
             --tok: var(--green-h);
@@ -145,8 +132,4 @@ pre:has(code) {
 .ch-s {
     font-size: var(--ch-s);
     color: var(--fg-ss);
-}
-
-.right {
-    text-align: end;
 }

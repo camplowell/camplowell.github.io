@@ -1,12 +1,37 @@
 @media print {
-    body > nav,
-    body > footer {
+    body > :is(nav, footer) {
         display: none;
+    }
+    body > main {
+        margin-block-start: 0;
+    }
+
+    svg, img {
+        max-width: calc(0.5 * attr(width px));
+        max-height: calc(0.5 * attr(height px));
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
     :where(a, button) {
         transition: none;
+    }
+}
+
+:focus-visible {
+    outline: var(--green-h);
+}
+
+pre > code > *::selection {
+    @media (prefers-color-scheme: light) {
+        color: var(--fg-h);
+        background-color: oklab(
+            from color-mix(in oklab, var(--bg-selected), var(--tok) 20%)
+                calc(0.25 * l + 0.76 * var(--bg-selected-l)) a b
+        );
+    }
+    @media (prefers-color-scheme: dark) {
+        background-color: var(--bg-selected);
+        color: color-mix(in oklab, var(--tok) 30%, var(--fg-h));
     }
 }

@@ -88,13 +88,9 @@ main {
     margin-bottom: auto;
     margin-block-start: var(--spacing);
 
-    @media print {
-        margin-block-start: 0;
-    }
-
-    p {
+    /*p {
         min-width: 25ch;
-    }
+    }*/
 
     .prev-next {
         display: grid;

@@ -9,7 +9,7 @@ body {
     font-family: var(--font-body);
     font-size: var(--ch-m);
     line-height: 1;
-    
+
     background-color: var(--bg);
     color: var(--fg);
 
@@ -51,10 +51,9 @@ a {
     color: var(--blue);
     transition: color var(--dur);
     &:is(:hover, :focus-visible) {
-        outline: none;
         color: var(--blue-h);
     }
-    @supports(-moz-appearance: none) {
+    @supports (-moz-appearance: none) {
         transition: none;
     }
 }
@@ -66,23 +65,26 @@ a:visited {
     }
 }
 
-ul, ol {
+ul,
+ol {
     padding-inline-start: 2ch;
 }
 
 figure {
-  width: fit-content;
-  margin-inline: auto;
-  img, svg {
-    max-width: 100%;
+    width: fit-content;
     margin-inline: auto;
-  }
-  figcaption {
-    margin-top: 0;
-    text-align: center;
-    color: var(--fg-s);
-    font-size: var(--ch-s);
-  }
+    img,
+    svg {
+        max-width: attr(width px);
+        max-height: attr(height px);
+        margin-inline: auto;
+    }
+    figcaption {
+        margin-top: 0;
+        text-align: center;
+        color: var(--fg-s);
+        font-size: var(--ch-s);
+    }
 }
 
 button {
@@ -93,11 +95,6 @@ button {
     border: var(--line-width) solid var(--outline);
     background-color: var(--bg);
     color: var(--fg);
-
-    &:focus {
-        outline: none;
-        opacity: 100%;
-    }
 
     &.subtle {
         opacity: 50%;
@@ -110,7 +107,10 @@ button {
         background-color: var(--bg-lighter);
     }
 
-    transition: color var(--dur), background-color var(--dur), opacity var(--dur);
+    transition:
+        color var(--dur),
+        background-color var(--dur),
+        opacity var(--dur);
 }
 
 strong {

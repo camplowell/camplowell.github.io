@@ -131,9 +131,17 @@ body {
 
     --ch-fac: progress(var(--breakout-width), 30rch, var(--breakout-max-width));
 
-    --ch-s: calc(0.9rem + var(--ch-fac) * 0.15rem);
-    --ch-m: calc(1rem + var(--ch-fac) * 0.25rem);
-    --ch-3: calc(1.1rem + var(--ch-fac) * 0.5rem);
-    --ch-4: calc(1.2rem + var(--ch-fac) * 0.75rem);
+    --ch-s: calc(0.9rem + var(--ch-fac) * 0.1rem);
+    --ch-m: calc(1rem + var(--ch-fac) * 0.15rem);
+    --ch-3: calc(1.1rem + var(--ch-fac) * 0.25rem);
+    --ch-4: calc(1.2rem + var(--ch-fac) * 0.5rem);
     --ch-5: calc(2rem + var(--ch-fac) * 1rem);
+
+    @media print {
+        --ch-s: 10pt;
+        --ch-m: 12pt;
+        --ch-3: 14pt;
+        --ch-4: 16pt;
+        --ch-5: 20pt;
+    }
 }

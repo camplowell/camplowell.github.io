@@ -50,7 +50,10 @@ of the timing and equalization-based cues humans use to perceive audio in the re
 all three default to a panning algorithm reminiscent of two back-to-back cardioid microphones. This strategy
 only differentiates sounds on the left/right axis.
 
-![Gain by source angle]({{ './cardioid-panner.svg' | url }})
+<figure>
+<svg width="600" height="400" viewBox="0 0 600 400"><g id="g27" transform="translate(25 -77.6)"><path id="path24" fill="none" stroke-width="5" d="M68.7 425.9c47.2 34.7 107.7 42.7 158.1 22.5 46.3-18.4 77-58 81.7-99.6 4.7-42.3-19.2-69-34.1-71.2 15.5-2 41.5-32 33.1-78-7.9-43.4-43.4-82.3-93-97.2a168 168 0 0 0-157.3 36C5 183.8-5.3 242-5.6 279.3c-.3 51 23.8 109.7 74.3 146.6"/><use xlink:href="#path24" id="use26" x="0" y="0" style="stroke:#c64e31;stroke-opacity:1" transform="matrix(-1 0 0 1 550 0)"/><use xlink:href="#path24" id="use27" x="0" y="0" style="stroke:#387baf;stroke-opacity:1"/></g></svg>
+<figcaption>Gain by source angle</figcaption>
+</figure>
 
 Head-related transfer functions (or HRTFs for short) offer a much more immersive and informative version of the
 panning process by emulating how the human head and ears affect audio on its way to the ear. They can greatly improve
