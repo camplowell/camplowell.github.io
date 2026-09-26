@@ -1,6 +1,7 @@
 import markdownItImageFigures from "markdown-it-image-figures";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pseudocode from "./_languages/pseudocode.js";
+import { transform as transform_css } from "lightningcss";
 
 export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "assets/": "/" });
@@ -11,7 +12,18 @@ export default function (eleventyConfig) {
     eleventyConfig.addWatchTarget("./css/*.css");
     eleventyConfig.addWatchTarget("blog");
 
-    eleventyConfig.addBundle("css", { bundleHtmlContentFromSelector: "style" });
+    eleventyConfig.addBundle("css", {
+        bundleHtmlContentFromSelector: "style",
+        transforms: [
+            async function (content) {
+                const { code } = transform_css({
+                    code: Buffer.from(content),
+                    minify: true,
+                });
+                return code.toString();
+            }
+        ]
+    });
     eleventyConfig.amendLibrary("md", (markdownLibrary) =>
         markdownLibrary.use(markdownItImageFigures, { figcaption: "alt" }),
     );
