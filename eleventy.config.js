@@ -24,6 +24,9 @@ export default function (eleventyConfig) {
             }
         ]
     });
+    eleventyConfig.addBundle("js", {
+        bundleHtmlContentFromSelector: "script",
+    });
     eleventyConfig.amendLibrary("md", (markdownLibrary) =>
         markdownLibrary.use(markdownItImageFigures, { figcaption: "alt" }),
     );

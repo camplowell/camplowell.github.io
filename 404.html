@@ -1,6 +1,7 @@
 ---
 layout: layout.html
 title: 404
+permalink: 404.html
 ---
 <h1>404</h1>
 <pre><code><span id="ears">(\(\ </span>
@@ -27,14 +28,18 @@ function anim(target, frames, i = 0) {
     target.textContent = frames[i][0];
     setTimeout(anim, duration, target, frames, (i + 1) % frames.length);
 }
-anim(document.getElementById("face"), [
-    ["(−.−)", 1500], 
-    ["(-.-)", 1500]
-]);
-anim(document.getElementById("ears"), [
-    ["(\\(\\ ", () => Math.random() * 8000],
-    ["(\\ (|", 24],
-    ["(\\ /)", 84],
-    ["(\\|) ", 24],  
-]);
+function start() {
+    anim(document.getElementById("face"), [
+        ["(−.−)", 1500], 
+        ["(-.-)", 1500]
+    ]);
+    anim(document.getElementById("ears"), [
+        ["(\\(\\ ", () => Math.random() * 8000],
+        ["(\\ (|", 24],
+        ["(\\ /)", 84],
+        ["(\\|) ", 24],  
+    ]);
+}
+if (document.readyState == "complete") start();
+else window.addEventListener('load', start);
 </script>
