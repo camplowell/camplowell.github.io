@@ -3,62 +3,62 @@ title: "Beyond panning: 3D sound over headphones"
 brief: HRTFs enhance immersion and provide more information to the player
 date: 2026-09-20
 bibliography:
-  - id: armstrong2018
-    author: C. Armstrong, L. Thresh, D. Murphy, and G. Kearney
-    title: "A Perceptual Evaluation of Individual and Non-Individual HRTFs: A Case Study of the SADIE II Database"
-    publisher: "Applied Sciences, vol. 8, no. 11, p. 2029"
-    date: Nov. 2018
-    doi: 10.3390/app8112029
-    url: https://www.mdpi.com/2076-3417/8/11/2029
-  - id: larsen2013
-    author: Camilla Marie Larsen, David Skødt Lauritsen, Jacob Norvig Larsen, M. Pilgaard, and J. Madsen
-    title: "Differences in human audio localization performance between a HRTF- and a non-HRTF audio system"
-    publisher: "ACM International Conference Proceeding Series"
-    date: Sept. 2013
-    doi: 10.1145/2544114.2544118
-    url: https://dl.acm.org/doi/10.1145/2544114.2544118
-  - id: andersen2021
-    author: J. S. Andersen, R. Miccini, S. Serafin, and S. Spagnol
-    title: Evaluation of Individualized HRTFs in a 3D Shooter Game
-    publisher: "2021 Immersive and 3D Audio: from Architecture to Automotive (I3DA), pp. 1-10"
-    date: Sept. 2021
-    doi: 10.1109/I3DA48870.2021.9610934
-    url: https://itsadive.create.aau.dk/wp-content/uploads/2021/10/I3DA_2021.pdf
-  - id: rodriguez2021
-    author: M. Cuevas-Rodriguez, D. Gonzalez-Toledo, Arcadio Reyes-Lecuona, and L. Picinali
-    title: Impact of non-individualised head related transfer functions on speech-in-noise performances within a synthesised virtual environment
-    publisher: The Journal of the Acoustical Society of America, vol. 149, no. 4, pp. 2573–2586
-    date: Apr. 2021
-    doi: 10.1121/10.0004220
-  - id: ellinger2017
-    author: R. L. Ellinger, K. M. Jakien, and F. J. Gallun,
-    title: The role of interaural differences on speech intelligibility in complex multi-talker environments
-    publisher: The Journal of the Acoustical Society of America, vol. 141, no. 2, pp. EL170-EL176
-    date: Feb. 2017
-    doi: 10.1121/1.4976113
+    - id: armstrong2018
+      author: C. Armstrong, L. Thresh, D. Murphy, and G. Kearney
+      title: "A Perceptual Evaluation of Individual and Non-Individual HRTFs: A Case Study of the SADIE II Database"
+      publisher: "Applied Sciences, vol. 8, no. 11, p. 2029"
+      date: Nov. 2018
+      doi: 10.3390/app8112029
+      url: https://www.mdpi.com/2076-3417/8/11/2029
+    - id: larsen2013
+      author: Camilla Marie Larsen, David Skødt Lauritsen, Jacob Norvig Larsen, M. Pilgaard, and J. Madsen
+      title: "Differences in human audio localization performance between a HRTF- and a non-HRTF audio system"
+      publisher: "ACM International Conference Proceeding Series"
+      date: Sept. 2013
+      doi: 10.1145/2544114.2544118
+      url: https://dl.acm.org/doi/10.1145/2544114.2544118
+    - id: andersen2021
+      author: J. S. Andersen, R. Miccini, S. Serafin, and S. Spagnol
+      title: Evaluation of Individualized HRTFs in a 3D Shooter Game
+      publisher: "2021 Immersive and 3D Audio: from Architecture to Automotive (I3DA), pp. 1-10"
+      date: Sept. 2021
+      doi: 10.1109/I3DA48870.2021.9610934
+      url: https://itsadive.create.aau.dk/wp-content/uploads/2021/10/I3DA_2021.pdf
+    - id: rodriguez2021
+      author: M. Cuevas-Rodriguez, D. Gonzalez-Toledo, Arcadio Reyes-Lecuona, and L. Picinali
+      title: Impact of non-individualised head related transfer functions on speech-in-noise performances within a synthesised virtual environment
+      publisher: The Journal of the Acoustical Society of America, vol. 149, no. 4, pp. 2573–2586
+      date: Apr. 2021
+      doi: 10.1121/10.0004220
+    - id: ellinger2017
+      author: R. L. Ellinger, K. M. Jakien, and F. J. Gallun,
+      title: The role of interaural differences on speech intelligibility in complex multi-talker environments
+      publisher: The Journal of the Acoustical Society of America, vol. 141, no. 2, pp. EL170-EL176
+      date: Feb. 2017
+      doi: 10.1121/1.4976113
 ---
 
-In games, audio serves a similar role to peripheral vision. Ambient audio provides a sense of space 
-and activity in the game world, and entities can announce their presence to the player by making noise, 
+In games, audio serves a similar role to peripheral vision. Ambient audio provides a sense of space
+and activity in the game world, and entities can announce their presence to the player by making noise,
 even if they're out of view. However, most players don't use a surround sound setup to play their games.
 So how do you know where sounds came from? The answer lies in how the game translates sounds within the
 game world into a stereo signal.
 
 By default, Unreal Engine, Unity, and Godot use panning to render stereo audio, conveying directionality only
-by making one channel louder than the other. This process throws away a lot of information, and lacks all of
+by making one channel louder than the other. This process throws away a lot of information, and lacks all
 of the timing and equalization-based cues humans use to perceive audio in the real world. More specifically,
 all three default to a panning algorithm reminiscent of two back-to-back cardioid microphones. This strategy
 only differentiates sounds on the left/right axis.
 
 <figure>
 <svg width="600" height="400" viewBox="0 0 600 400"><g id="g27" transform="translate(25 -77.6)"><path id="path24" fill="none" stroke-width="5" d="M68.7 425.9c47.2 34.7 107.7 42.7 158.1 22.5 46.3-18.4 77-58 81.7-99.6 4.7-42.3-19.2-69-34.1-71.2 15.5-2 41.5-32 33.1-78-7.9-43.4-43.4-82.3-93-97.2a168 168 0 0 0-157.3 36C5 183.8-5.3 242-5.6 279.3c-.3 51 23.8 109.7 74.3 146.6"/><use xlink:href="#path24" id="use26" x="0" y="0" style="stroke:#c64e31;stroke-opacity:1" transform="matrix(-1 0 0 1 550 0)"/><use xlink:href="#path24" id="use27" x="0" y="0" style="stroke:#387baf;stroke-opacity:1"/></g></svg>
-<figcaption>Gain by source angle</figcaption>
+<figcaption>Left-channel and right-channel gain by source angle</figcaption>
 </figure>
 
 Head-related transfer functions (or HRTFs for short) offer a much more immersive and informative version of the
 panning process by emulating how the human head and ears affect audio on its way to the ear. They can greatly improve
 the sensation that a sound is coming from a specific direction, especially if they are personalized for the listener.
-With HRTFs, sounds can be *externalized*, perceived as coming from a point in space rather than from inside the
+With HRTFs, sounds can be _externalized_, perceived as coming from a point in space rather than from inside the
 head {% cite "armstrong2018" %}.
 
 ## Conveying More Information
@@ -70,20 +70,20 @@ of the HRTF has less consistent and generally smaller gameplay impacts compared 
 to binaural audio. The information gain is particularly pronounced for locating audio sources behind, above, and below
 the listener, where the audio source is likely to be offscreen.
 
-## Mixing clarity: Spatial Release from Masking
+## Mixing clarity
 
 In addition to improving the immersive experience of your game's soundscape, binaural audio
 can also make it easier to distinguish between sounds coming from different directions {% cite "rodriguez2021" %}.
-One component of HRTFs, called interaural time difference (i.e. ITD) has been shown to be effective at improving
+One component of HRTFs, called interaural time difference (ITD) has been shown to be effective at improving
 the intelligibility of dialogue in the presence of other sounds, even independent of other HRTF effects {% cite "ellinger2017" %}.
-This suggests that even simplified models of a head-related transfer function can be helpful, even without
+This suggests that simplified models of a head-related transfer function can be helpful, even without
 emulating all of the effects the head and torso have on sound as it reaches the ear.
 
 ## When is this (not) worth it?
 
 HRTFs and other spatial audio techniques are especially worth considering if acute spatial awareness or a sense of auditory
 realism is important to your game. The benefits of HRTFs are especially applicable to first/third-person
-action games, horror games, stealth games, and dialogue-heavy games. HRTFs also only account for the effects the human body introduces.
+action games, horror games, stealth games, and dialogue-heavy games. HRTFs also only account for the effects the human body introduces. That said, HRTFs aren't the whole picture.
 Many effects outside the body can also affect audio perception, such as early reflections, long-tail reverb, occlusion, and diffraction.
 
 HRTFs are also generally designed to be used with headphones. Speaker users will want a toggle: the speakers' sound is filtered
@@ -102,7 +102,7 @@ it may be worth investigating ambisonic implementations, as their cost scales wi
 
 Lastly, realism isn't always desirable. Games are art, and deliberately omitting detail is one of the primary types
 of stylization. My hope is that as time progresses, this sort of information loss is more commonly a conscious choice
-than a default left unconsidered and unattended to.
+than a default left unchallenged.
 
 ## Quickstart
 
@@ -113,7 +113,7 @@ spatialization features, depending on the target platform. In FMOD, this is achi
 Spatializer effect, and in Wwise, it's done via their spatial audio listener. Both
 also have integrations with several third-party software spatial audio systems.
 
-If you want to use platform-independent spatial audio *without* a full audio middleware, both Unity
+If you want to use platform-independent spatial audio _without_ a full audio middleware, both Unity
 and Unreal Engine have plugins for Steam Audio. Start by just setting up HRTFs and occlusion from
 large obstacles. Steam Audio is incredibly customizable and feature-rich, but you don't need to touch
 most of the available options to get something that sounds good.
